@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>
+    AVAILABLE COUPONS 
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+    </head>
+    <body background="https://s7ym67pp8g-flywheel.netdna-ssl.com/wp-content/uploads/2015/09/Video-Featured-final.jpg">
+        <div class="container-fluid">
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li><a href="#"><img src="../logo.png" height="30px" width="30px"/></a>
+            </li>
+        </ul>
+      <a class="navbar-brand" href="#">COUPON NINJA!</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">CONTACT US   </a></li>
+    </ul>
+  </div>
+</nav>
+            <div id="id1">
+                <table id="t" align="center">
+                <tr>
+                    <td>
+                        
+                    </td></tr>
+                </table>
+            </div>
+    </div>
+    </body>
+    <script>
+    var socket=io();
+        socket.on('coupon',function(data)){
+                  var siz=data.length;
+                  for(i=0;i<siz;i++)
+                {
+                    var id=document.getElementById('t').rows[i].cells[1];
+                    var vh=data[i];
+                    id.appendChild(vh);
+                }
+        }
+                  
+    </script>
+</html>

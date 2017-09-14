@@ -27,6 +27,8 @@ router.post('/scrape',function(req,res,next){
             var $ =cheerio.load(html);
    	  	 	ans=$("div.sm-code").text();
             console.log(ans);
+            ans=ans.split(' ');
+            res.json({answer:ans});
    	  	 };
    	  	 	
    	  	 
@@ -37,7 +39,7 @@ router.post('/scrape',function(req,res,next){
           if(!error){
           	console.log(1);
           	var $ =cheerio.load(html);
-          	ans.concat($("button.btn.btn",this).attr("data-coupon").val());
+          	ans.concat($("button.btn.btn-lg.btn-default");
           	console.log(ans);
           }
 
@@ -51,7 +53,7 @@ router.post('/scrape',function(req,res,next){
           	ans1=$("p.tooltip-holder").children().text();
           	console.log(ans1);
           }
-   	  })*/
+   	  })
       
 
       /*var ans1='';
@@ -67,7 +69,7 @@ router.post('/scrape',function(req,res,next){
 
 
    }
-    if(myUrl.hostname.search(/jabong/)!=-1){
+    else if(myUrl.hostname.search(/jabong/)!=-1){
 
  		var url2="http://www.grabon.in/jabong-coupons/";
    	  request(url2,function(error, response, html){
@@ -78,6 +80,7 @@ router.post('/scrape',function(req,res,next){
             var $ =cheerio.load(html);
    	  	 	ans=$("div.sm-code").text();
             console.log(ans);
+            res.json({answer:ans});
    	  	 };
    	  	 	
    	  	 
@@ -86,6 +89,54 @@ router.post('/scrape',function(req,res,next){
 
 
     }
+
+    else if(myUrl.hostname.search(/makemytrip/)!=-1){
+
+ 		var url2="http://www.grabon.in/jabong-coupons/";
+   	  request(url2,function(error, response, html){
+
+   	  	 if(!error)
+   	  	 {
+   	  	 	console.log(1);
+            var $ =cheerio.load(html);
+   	  	 	ans=$("div.sm-code").text();
+            console.log(ans);
+            res.json({answer:ans});
+   	  	 };
+   	  	 	
+   	  	 
+   	  })
+
+
+
+    }
+
+    else if(myUrl.hostname.search(/bookmyshow/)!=-1){
+
+ 		var url2="http://www.grabon.in/jabong-coupons/";
+   	  request(url2,function(error, response, html){
+
+   	  	 if(!error)
+   	  	 {
+   	  	 	console.log(1);
+            var $ =cheerio.load(html);
+   	  	 	ans=$("div.sm-code").text();
+            console.log(ans);
+            res.json({answer:ans});
+   	  	 };
+   	  	 	
+   	  	 
+   	  })
+
+
+
+    }
+
+
+
+
+
+
 });
 
 module.exports = router;
